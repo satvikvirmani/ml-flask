@@ -1,5 +1,4 @@
 import numpy as np
-import joblib
 
 class NeuralNetwork:
     def __init__(self) -> None:
@@ -9,7 +8,7 @@ class NeuralNetwork:
         self.Z = dict()
         self.derivatives = dict()
         pass
-    
+
     def init_data(self, X, Y):
         self.X = X
         self.Y = Y
@@ -115,8 +114,7 @@ class NeuralNetwork:
         predictions = self.get_predictions()
         return predictions
 
-    def test_prediction(self, index) -> int:
-        current_image = self.X[:, index, None]
-        prediction = self.make_predictions(self.X[:, index, None])
-        label = self.Y[index]
+    def test_prediction(self, X) -> int:
+        current_image = X
+        prediction = self.make_predictions(current_image)
         return prediction[0]
